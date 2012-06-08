@@ -11,3 +11,12 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier',     '>= 1.0.3'
 end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'turnip'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+end
