@@ -1,0 +1,9 @@
+<section id="articles">
+  <% if ! @articles.empty? %>
+    <%= render @articles %>
+    <%= link_to_previous_page @articles, 'Newer Articles' %>
+    <%= link_to_next_page @articles, 'Older Articles' %>
+  <% else %>
+    <p>No articles have been written.</p>
+  <% end %>
+</section>

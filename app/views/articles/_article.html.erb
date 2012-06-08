@@ -1,0 +1,7 @@
+<article>
+  <header>
+    <%= time_tag article.published_at, article.published_date, pubdate: true %>
+    <%= content_tag :h2, article.title %>
+    <%= content_tag :p,  article.abstract %>
+  </header>
+</article>
