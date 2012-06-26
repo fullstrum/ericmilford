@@ -22,3 +22,8 @@ Feature: Reading published articles
     Given there are unpublished articles
     When I visit the homepage
     Then I should not see an abstract for any unpublished articles
+
+  Scenario: viewing a published article
+    Given there is at least one published article
+    When I click to read that article
+    Then I should see that article's content
