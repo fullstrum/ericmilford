@@ -3,5 +3,6 @@
     <%= time_tag article.published_at, article.published_date, pubdate: true %>
     <%= content_tag :h2, link_to(article.title, article) %>
     <%= content_tag :p,  article.abstract_or_content(params[:id]) %>
+    <%= content_tag :p,  article.tags_list %>
   </header>
 </article>

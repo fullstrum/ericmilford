@@ -6,8 +6,11 @@ class Article
   key :abstract,      String, required: true
   key :content,       String, required: true
   key :slug,          String, required: true, unique: true
+  key :tag_ids,       Array
 
   timestamps!
+
+  many :tags, in: :tag_ids
 
   before_validation :set_slug
 

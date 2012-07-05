@@ -53,6 +53,7 @@ step 'I should see abstracts for the remaining published articles' do
     page.should have_content(article.title)
     page.should have_content(article.abstract)
     page.should have_content(article.published_date)
+    page.should have_content(article.tags_list)
   end
 end
 
@@ -67,4 +68,5 @@ step 'I should see that article\'s content' do
   page.should have_content(article.title)
   page.should have_content(article.content)
   page.should have_content(article.published_date)
+  page.should have_content(article.tags_list)
 end
