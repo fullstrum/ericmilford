@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.5'
 
 gem 'jquery-rails'
-gem 'mongo_mapper', github: 'jnunemaker/mongomapper'
+gem 'mongoid'
 gem 'bson_ext'
 gem 'draper'
 gem 'kaminari', github: 'amatsuda/kaminari'

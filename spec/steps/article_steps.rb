@@ -1,7 +1,7 @@
 #-- Given
 step 'there is/are :count published article(s)' do |count|
   if count.zero?
-    Article.unset(:published)
+    Article.published.delete_all
   else
     count.times { create(:article, :published) }
   end

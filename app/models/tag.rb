@@ -1,5 +1,10 @@
 class Tag
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :name, String, required: true, unique: true
+  field :name, type: String
+
+  validates :name, presence: true, uniqueness: true
+
+  has_and_belongs_to_many :articles
 end

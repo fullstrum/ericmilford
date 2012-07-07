@@ -1,21 +1,23 @@
 class Article
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :published_at,  Time
-  key :title,         String, required: true
-  key :abstract,      String, required: true
-  key :content,       String, required: true
-  key :slug,          String, required: true, unique: true
-  key :tag_ids,       Array
+  field :published_at, type: Time
+  field :title,        type: String
+  field :abstract,     type: String
+  field :content,      type: String
+  field :slug,         type: String
 
-  timestamps!
+  validates :title,    presence: true, uniqueness: true
+  validates :abstract, presence: true
+  validates :content,  presence: true
 
-  many :tags, in: :tag_ids
+  has_and_belongs_to_many :tags
 
-  before_validation :set_slug
+  before_save :set_slug
 
-  scope :published,   -> { where(published_at: {:$exists => true}) }
-  scope :unpublished, -> { where(published_at: {:$exists => false}) }
+  scope :published,   -> { where(:published_at.nin => [nil, ""]) }
+  scope :unpublished, -> { where(:published_at.in  => [nil, ""]) }
 
 
   def to_param
